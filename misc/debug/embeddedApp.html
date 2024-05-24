@@ -85,7 +85,7 @@
     <div class="system-message">Waiting for connection ...</div>
   </div>
 </div>
-<script src="../../dist/qwil-api-transport.js"></script>
+<script src="../../node_modules/qwil-api-transport/dist/qwil-api-transport.min.js"></script>
 <script>
   const C_REQUEST = 'msg-request';
   const C_EVENT_IN = 'msg-event-in';
@@ -101,8 +101,7 @@
       disableAllButtons();
       return;
     }
-
-    transport = new QwilApiTransport({
+    transport = new QwilApiTransport.Transport({
       scope,
       eventHandler,
       requestHandler,

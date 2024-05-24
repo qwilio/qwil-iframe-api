@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Parent app</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+      overflow: hidden;
+    }
+
+    button {
+      margin-left: 20px;
+    }
+
+    #qwil-container {
+      width: 100%;
+      height: 100%;
+    }
+
+  </style>
+</head>
+<body>
+<div id="qwil-container"></div>
+<script src="../../dist/qwil-iframe-api.js"></script>
+<script>
+
+  const api = new QwilApi({
+    token: 'token',
+    endpoint: 'http://endpoint',
+    options: {
+      customUrl: 'http://localhost:3000'
+    },
+    // appDomain: 'sdk-beta.qwil.network',
+    targetElement: document.getElementById('qwil-container'),
+    onLoad: (api) => {
+      console.log('app loaded')
+      api.sendCommand('ping', { 'message': 'testing onLoad event' });
+
+      api.on('auth-expired', (payload) => {
+        console.log('auth expired')
+        reauthenticate();
+      });
+    },
+    onError: (err) => {
+      console.error(`Qwil login failed with ${JSON.stringify(err)}`);
+    }
+  });
+
+  // function reauthenticate() {
+  //   printInfo('Pretending to get new auth tokens from server ...');
+  //   api.reauthenticate({
+  //     token: 'newToken',
+  //     endpoint: 'http://endpoint'
+  //   }).then(() => {
+  //     printInfo('Relogin successful');
+  //   }).catch((err) => {
+  //     printError(`relogin failed with ${JSON.stringify(err)}`)
+  //   });
+  // }
+
+</script>
+</body>
+</html>

@@ -1,5 +1,5 @@
 import EventEmitter from 'events';
-import Transport from './transport';
+import { Transport } from 'qwil-api-transport';
 import { LIB_VERSION } from './constants';
 
 

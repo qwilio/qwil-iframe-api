@@ -30,23 +30,5 @@ const apiBuildConfig = {
   ]
 };
 
-const transportBuildConfig = {
-  entry: './src/transport/index.js',
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: `qwil-api-transport.js`,
-    library: 'QwilApiTransport',
-    libraryExport: 'default',
-    libraryTarget: 'umd',
-    globalObject: 'this',
-  },
-  plugins: [
-    new webpack.BannerPlugin({
-      raw: true,
-      banner: `/* qwil-api-transport version ${version} built ${now} */`,
-      stage: webpack.Compilation.PROCESS_ASSETS_STAGE_REPORT,
-    }),
-  ]
-};
 
-module.exports = [apiBuildConfig, transportBuildConfig];
+module.exports = [apiBuildConfig];

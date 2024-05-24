@@ -2,7 +2,17 @@
   "name": "qwil-iframe-api",
   "version": "0.1.0",
   "description": "Qwil IFrame Api",
-  "author": "Qwil",
+  "author": "Shawn Chin",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:qwilio/qwil-iframe-api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/qwilio/qwil-iframe-api/issues"
+  },
+  "files": [
+    "dist"
+  ],
   "license": "MIT",
   "scripts": {
     "build": "webpack --mode=production",
@@ -13,6 +23,6 @@
     "webpack-cli": "^5.1.4"
   },
   "dependencies": {
-    "postis": "^2.2.0"
+    "qwil-api-transport": "^0.1.0"
   }
 }
