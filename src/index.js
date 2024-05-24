@@ -12,6 +12,7 @@ function getNextInstanceId() {
 function createIFrame(params) {
   const {
     parentElement = document.body,
+    replaceTargetContent,
     width = '100%',
     height = '100%',
     url,
@@ -31,6 +32,11 @@ function createIFrame(params) {
   ].join('; ');
 
   frame.src = url;
+
+  if (replaceTargetContent) {
+    parentElement.innerHTML = '';
+  }
+
   return parentElement.appendChild(frame);
 }
 
@@ -49,6 +55,7 @@ export default class QwilApi extends EventEmitter {
       width = '100%',
       height = '100%',
       appDomain = 'sdk.qwil.io',
+      replaceTargetContent = true,
       targetElement = document.body
     } = params;
 
@@ -68,6 +75,7 @@ export default class QwilApi extends EventEmitter {
       url,
       width,
       height,
+      replaceTargetContent,
       parentElement: targetElement,
       id: this._id
     });
@@ -105,7 +113,7 @@ export default class QwilApi extends EventEmitter {
     if (!this._ready) {
       console.error(`Command "${command}" sent before API is ready`);
     } else {
-      this._transport.sendEvent('command', { command, payload });
+      this._transport.sendEvent('__command', { command, payload });
     }
   }
 

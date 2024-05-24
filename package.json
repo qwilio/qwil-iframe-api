@@ -23,6 +23,6 @@
     "webpack-cli": "^5.1.4"
   },
   "dependencies": {
-    "qwil-api-transport": "^0.1.0"
+    "qwil-api-transport": "^0.1.1"
   }
 }
