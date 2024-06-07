@@ -1,10 +1,17 @@
 const path = require('path');
 const webpack = require('webpack');
-const PACKAGE = require('./package.json');
-
-const version = PACKAGE.version;
+const pkg = require('./package.json');
+const year = new Date().getFullYear();
 const libName = 'qwil-iframe-api';
 const now = (new Date()).toUTCString();
+const banner = `/**!
+ * ${pkg.name} (built ${now})
+ * 
+ * @copyright ${year} ${pkg.author}
+ * @license ${pkg.license}
+ * @version ${pkg.version}
+ */
+ `;
 
 const apiBuildConfig = {
   entry: './src/index.js',
@@ -23,8 +30,8 @@ const apiBuildConfig = {
       ),
     }),
     new webpack.BannerPlugin({
+      banner,
       raw: true,
-      banner: `/* ${libName} version ${version} built ${now} */`,
       stage: webpack.Compilation.PROCESS_ASSETS_STAGE_REPORT,
     }),
   ]
