@@ -1,6 +1,6 @@
 {
   "name": "qwil-iframe-api",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Qwil IFrame Api",
   "author": "Qwil",
   "repository": {
@@ -11,10 +11,12 @@
     "url": "https://github.com/qwilio/qwil-iframe-api/issues"
   },
   "files": [
-    "dist"
+    "src",
+    "dist",
+    "types"
   ],
   "module": "src/index.js",
-  "main": "dist/qwil-iframe-api.js",
+  "types": "types/qwil-iframe-api.d.ts",
   "license": "MIT",
   "scripts": {
     "build": "webpack --mode=production",
