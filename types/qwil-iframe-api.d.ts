@@ -3,17 +3,21 @@ type EventListener = (payload?: object) => void
 export interface QwilApiProps {
   token: string;
   endpoint: string;
-  options?: object;
+  targetElement: HTMLElement;
+  options?: {
+    customUrl?: string;
+    contactsTappable?: boolean,
+    path?: string;
+  };
   width?: string;
   height?: string;
   appDomain?: string;
   replaceTargetContent?: boolean;
-  targetElement?: HTMLElement;
   onLoad?: (api: QwilApi) => void;
   onError?: (error: Error) => void;
 }
 
-export declare class QwilApi {
+export default class QwilApi {
   version: string;
   constructor(props: QwilApiProps);
   destroy(): void;
