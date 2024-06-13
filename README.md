@@ -66,9 +66,12 @@ The `config` object accepts the following fields:
    * `height`: Height of the iFrame. Defaults to `"100%"`.
    * `replaceTargetContent`: If `false`, generated iFrame is appended to `targetElement`'s children. Otherwise, the default behaviour is to replace the content of `targetElement`.
    * `options`: Additional customisations.
-       * `options.contactsTappable`: if `true`, contacts are tappable and will raise a "click-on-contact" event when contacts are tapped within the app.
        * `options.path`: Custom path to navigate to once the app is initialised e.g. starting on a specific chat.
        * `options.theme`: _[NOT YET AVAILABLE]_ CSS overrides to customise the look and feel of the app
+       * `options.contactsTappable`: if `true`, contacts are tappable and will raise a "click-on-contact" event when contacts are tapped within the app.
+       * `options.imagePreview`: if `false`, the in-app image preview is disabled and clicking on images will trigger downloads instead.
+       * `options.pdfPreview`: if `false`, the in-app PDF preview is disabled and clicking on pdf files will trigger downloads instead.
+       * `option.emitDownloads`: if `true`, `download-request` event are emitted instead downloads. This allows you to handle the download/preview logic yourself.
    * `appDomain`: Target a different app variant. For example, setting to "beta-sdk.qwil.io" will embed a beta version of Qwil instead of the production version. 
    * `onLoad`: Callback function when app is loaded and user is authenticated
    * `onError`: Callback function when app fails to load or authentication failed
@@ -162,6 +165,25 @@ The listener receives an object with the following structure:
   entityUserXrefUuid: string // Qwil UUID for the contact
   identifier: string // Qwil user identifier for the contact
   isMe: boolean // True if the contact is the user themself
+}
+```
+
+### download-request
+
+Emitted when `emitDownloads` feature is enabled and a user taps on a button/file that would otherwise trigger downloads.
+
+This allows you to handle the download logic yourself. Files are embedded in the payload as 
+[Data URLs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URLs).
+
+Or, when used with `imagePreview=false` or `filePreview=false`, you could intercept the taps on image/pdf files and
+handle the previews yourself.
+
+The listener receives an object with the following structure:
+
+```javascript
+{
+  filename: string // name of the file
+  url: string // The data URL of the file.
 }
 ```
 

@@ -573,10 +573,10 @@ punycode@^2.1.0:
   resolved "https://registry.yarnpkg.com/punycode/-/punycode-2.3.1.tgz#027422e2faec0b25e1549c3e1bd8309b9133b6e5"
   integrity sha512-vYt7UD1U9Wg6138shLtLOvdAu+8DsC/ilFtEVHcH+wydcSpNE20AfSOduf6MkRFahL5FY7X1oU7nKVZFtfq8Fg==
 
-qwil-api-transport@^0.1.1:
-  version "0.1.3"
-  resolved "https://registry.yarnpkg.com/qwil-api-transport/-/qwil-api-transport-0.1.3.tgz#91043fa98729c5dd6c279f7629bc3843ddd64cc4"
-  integrity sha512-sybo/YZ9IjkL22BEtAG9yAFZLe6doYWoiLK2MM1EfjhJUhq9TXqf8lvlNSHNvxKr1tfeLdkWlq+FHpf/8y/Q6Q==
+qwil-api-transport@^0.2.2:
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/qwil-api-transport/-/qwil-api-transport-0.2.2.tgz#4044e00a08c23d011cf42a43cc1b212fd0bdca4a"
+  integrity sha512-ZLnRjmC+4Gtr6H3lT7i0OHqViD+7cA7PNb/IHTsKlIlQBIrnP9cXmONUVudrZVa+MKzZqJV/eABP7PjU0h49vA==
 
 randombytes@^2.1.0:
   version "2.1.0"

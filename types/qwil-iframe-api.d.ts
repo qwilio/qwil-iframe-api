@@ -1,3 +1,5 @@
+import { RequestErrorDetails } from "qwil-api-transport";
+
 type EventListener = (payload?: object) => void
 
 export interface QwilApiProps {
@@ -5,17 +7,23 @@ export interface QwilApiProps {
   endpoint: string;
   targetElement: HTMLElement;
   options?: {
-    customUrl?: string;
-    contactsTappable?: boolean,
     path?: string;
+    customUrl?: string;
+
+    contactsTappable?: boolean,
+    imagePreview?: boolean,
+    pdfPreview?: boolean,
+    emitDownloads?: boolean,
   };
   width?: string;
   height?: string;
   appDomain?: string;
   replaceTargetContent?: boolean;
   onLoad?: (api: QwilApi) => void;
-  onError?: (error: Error) => void;
+  onError?: (error: RequestErrorDetails) => void;
 }
+
+export type QwilApiEvents = 'auth-expired' | 'app-error' | 'click-on-contact' | 'download-request';
 
 export default class QwilApi {
   version: string;
@@ -23,8 +31,8 @@ export default class QwilApi {
   destroy(): void;
   sendCommand(command: string, payload?: object): void;
   reauthenticate(params: { token: string, endpoint: string, option?: object}): void;
-  on(event: string, listener: EventListener): void;
-  off(event: string, listener: EventListener): void;
-  addListener(event: string, listener: EventListener): void;
-  removeListener(event: string, listener: EventListener): void;
+  on(event: QwilApiEvents, listener: EventListener): void;
+  off(event: QwilApiEvents, listener: EventListener): void;
+  addListener(event: QwilApiEvents, listener: EventListener): void;
+  removeListener(event: QwilApiEvents, listener: EventListener): void;
 }
