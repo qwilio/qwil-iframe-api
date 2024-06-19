@@ -233,6 +233,7 @@ api.sendCommand('navigate', { path })
 Here are some sample projects that uses the Qwil IFrame API.
 
 * Salesforce Lightning Web Component -- https://github.com/qwilio/qwil-salesforce-app
+* Salesforce Lightning Web Component (Multi-org version) -- https://github.com/qwilio/qwil-salesforce-multiorg-app
 * Client app
   * React example -- [TODO] 
   * React Native example -- [TODO]
