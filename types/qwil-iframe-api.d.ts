@@ -14,6 +14,7 @@ export interface QwilApiProps {
     imagePreview?: boolean,
     pdfPreview?: boolean,
     emitDownloads?: boolean,
+    emitMeetingJoin?: boolean,
   };
   width?: string;
   height?: string;
@@ -23,7 +24,12 @@ export interface QwilApiProps {
   onError?: (error: RequestErrorDetails) => void;
 }
 
-export type QwilApiEvents = 'auth-expired' | 'app-error' | 'click-on-contact' | 'download-request';
+export type QwilApiEvents =
+  | 'auth-expired'
+  | 'app-error'
+  | 'click-on-contact'
+  | 'download-request'
+  | 'meeting-join';
 
 export default class QwilApi {
   version: string;

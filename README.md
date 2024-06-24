@@ -72,6 +72,7 @@ The `config` object accepts the following fields:
        * `options.imagePreview`: if `false`, the in-app image preview is disabled and clicking on images will trigger downloads instead.
        * `options.pdfPreview`: if `false`, the in-app PDF preview is disabled and clicking on pdf files will trigger downloads instead.
        * `option.emitDownloads`: if `true`, `download-request` event are emitted instead downloads. This allows you to handle the download/preview logic yourself.
+       * `option.emitMeetingJoin`: if `true`, `meeting-join` event are emitted instead opening meeting URLs in new window. This allows you to handle the loading of meeting URLs yourself.
    * `appDomain`: Target a different app variant. For example, setting to "beta-sdk.qwil.io" will embed a beta version of Qwil instead of the production version. 
    * `onLoad`: Callback function when app is loaded and user is authenticated
    * `onError`: Callback function when app fails to load or authentication failed
@@ -184,6 +185,23 @@ The listener receives an object with the following structure:
 {
   filename: string // name of the file
   url: string // The data URL of the file.
+}
+```
+
+### meeting-join
+
+Emitted when `emitMeetingJoin` feature is enabled and a user attempts to join a meeting.
+
+This allows you to handle the loading of the Meeting URL yourself.
+
+N.B. The URL is only valid for a few seconds.
+
+The listener receives an object with the following structure:
+
+```javascript
+{
+  url: string // The meeting URL
+  meetingUuid: string // UUID of the meeting
 }
 ```
 

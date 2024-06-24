@@ -28,7 +28,8 @@ function createIFrame(params) {
   frame.style.width = width;
   frame.style.height = height;
   frame.allow = [
-    'clipboard-write'
+    'clipboard-write',
+    'camera',
   ].join('; ');
 
   frame.src = url;
