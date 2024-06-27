@@ -15,6 +15,11 @@ export interface QwilApiProps {
     pdfPreview?: boolean,
     emitDownloads?: boolean,
     emitMeetingJoin?: boolean,
+
+    chatListTitle?: string,
+    chatListLogo?: string,
+    emitChatListBack?: boolean,
+    disableChatBack?: boolean,
   };
   width?: string;
   height?: string;
@@ -28,6 +33,7 @@ export type QwilApiEvents =
   | 'auth-expired'
   | 'app-error'
   | 'click-on-contact'
+  | 'chat-list-back'
   | 'download-request'
   | 'meeting-join';
 
