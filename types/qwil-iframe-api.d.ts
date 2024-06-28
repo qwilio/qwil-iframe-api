@@ -10,6 +10,15 @@ export interface QwilApiProps {
     path?: string;
     customUrl?: string;
 
+    theme?: {
+      bubbleBgColour?: string;
+      bubbleTextColour?: string;
+      bubbleLinkColour?: string;
+      bubbleBgColour2?: string;
+      bubbleTextColour2?: string;
+      bubbleLinkColour2?: string;
+    };
+
     contactsTappable?: boolean,
     imagePreview?: boolean,
     pdfPreview?: boolean,

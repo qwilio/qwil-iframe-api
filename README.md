@@ -67,7 +67,6 @@ The `config` object accepts the following fields:
    * `replaceTargetContent`: If `false`, generated iFrame is appended to `targetElement`'s children. Otherwise, the default behaviour is to replace the content of `targetElement`.
    * `options`: Additional customisations.
        * `options.path`: Custom path to navigate to once the app is initialised e.g. starting on a specific chat.
-       * `options.theme`: _[NOT YET AVAILABLE]_ CSS overrides to customise the look and feel of the app
        * `options.contactsTappable`: if `true`, contacts are tappable and will raise a "click-on-contact" event when contacts are tapped within the app.
        * `options.imagePreview`: if `false`, the in-app image preview is disabled and clicking on images will trigger downloads instead.
        * `options.pdfPreview`: if `false`, the in-app PDF preview is disabled and clicking on pdf files will trigger downloads instead.
@@ -77,6 +76,13 @@ The `config` object accepts the following fields:
        * `options.chatListLogo`: URL of logo to display in the header of the Chat List. Specifying this will replace the text title with the logo image.
        * `options.emitChatListBack`: if `true`, a back button is shown on the Chat List, which when clicked will emit a `chat-list-back` event.
        * `options.hideChatBack`: if `true`, the back button on Chat screens are hidden. This is only practical if you have used `options.path` to deeplink to a specific chat.
+       * `options.theme`: CSS overrides to customise the look and feel of the app
+         * `options.theme.bubbleBgColour`: Background colour of chat bubble for own message
+         * `options.theme.bubbleTextColour`: Text colour of chat bubble for own message
+         * `options.theme.bubbleLinkColour`: Link text colour of chat bubble for own message
+         * `options.theme.bubbleBgColour2`: Background colour of chat bubble for message send by others
+         * `options.theme.bubbleTextColour2`: Text colour of chat bubble for message send by others
+         * `options.theme.bubbleLinkColour2`: Link text colour of chat bubble for message send by others
    * `appDomain`: Target a different app variant. For example, setting to "beta-sdk.qwil.io" will embed a beta version of Qwil instead of the production version. 
    * `onLoad`: Callback function when app is loaded and user is authenticated
    * `onError`: Callback function when app fails to load or authentication failed
