@@ -183,18 +183,15 @@ The listener receives an object with the following structure:
 
 Emitted when `emitDownloads` feature is enabled and a user taps on a button/file that would otherwise trigger downloads.
 
-This allows you to handle the download logic yourself. Files are embedded in the payload as 
-[Data URLs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URLs).
-
-Or, when used with `imagePreview=false` or `filePreview=false`, you could intercept the taps on image/pdf files and
-handle the previews yourself.
+A pre-authenticate download URL is return via the event payload. This URL is valid for only 10 seconds, so it should
+be used immediately.
 
 The listener receives an object with the following structure:
 
 ```javascript
 {
   filename: string // name of the file
-  url: string // The data URL of the file.
+  url: string // The URL for downloading the file
 }
 ```
 
