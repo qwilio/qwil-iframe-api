@@ -21,7 +21,7 @@ const apiBuildConfig = {
     library: 'QwilApi',
     libraryExport: 'default',
     libraryTarget: 'umd',
-    globalObject: 'this',
+    globalObject: 'self',
   },
   plugins: [
     new webpack.DefinePlugin({

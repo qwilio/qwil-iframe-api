@@ -1,7 +1,0 @@
-/**!
- * qwil-api-transport (built Thu, 13 Jun 2024 10:27:22 GMT)
- * 
- * @copyright 2024 Qwil
- * @license MIT
- * @version 0.2.2
- */
