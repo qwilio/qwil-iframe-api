@@ -67,15 +67,26 @@ The `config` object accepts the following fields:
    * `replaceTargetContent`: If `false`, generated iFrame is appended to `targetElement`'s children. Otherwise, the default behaviour is to replace the content of `targetElement`.
    * `options`: Additional customisations.
        * `options.path`: Custom path to navigate to once the app is initialised e.g. starting on a specific chat.
-       * `options.contactsTappable`: if `true`, contacts are tappable and will raise a "click-on-contact" event when contacts are tapped within the app.
+       * `options.contactsTappable`: if `true`, contacts are tappable and will raise a "click-on-contact" event when contacts are tapped in chat details and on contact list.
        * `options.imagePreview`: if `false`, the in-app image preview is disabled and clicking on images will trigger downloads instead.
        * `options.pdfPreview`: if `false`, the in-app PDF preview is disabled and clicking on pdf files will trigger downloads instead.
        * `options.emitDownloads`: if `true`, `download-request` event are emitted instead downloads. This allows you to handle the download/preview logic yourself.
        * `options.emitMeetingJoin`: if `true`, `meeting-join` event are emitted instead opening meeting URLs in new window. This allows you to handle the loading of meeting URLs yourself.
-       * `options.chatListTitle`: custom title to display in the header of the Chat List.
-       * `options.chatListLogo`: URL of logo to display in the header of the Chat List. Specifying this will replace the text title with the logo image.
-       * `options.emitChatListBack`: if `true`, a back button is shown on the Chat List, which when clicked will emit a `chat-list-back` event.
        * `options.hideChatBack`: if `true`, the back button on Chat screens are hidden. This is only practical if you have used `options.path` to deeplink to a specific chat.
+       * `options.hideTopNav`: if `true`, the Tab navigation on main screens (Contacts/Chats) is hidden. Use this if you want to implement your own nav.
+       * `options.topNavLabelContacts`: custom label for "contacts" in Tab navigation on main screens (Contacts/Chats).
+       * `options.topNavLabelChats`: custom label for "chats" in Tab navigation on main screens (Contacts/Chats).
+       * `options.topNavHeading`: if specified, an extra header is added above the Tab navigation.
+       * `options.contactEmailClickable`: if `false`, email addresses in contact list will not be clickable. Otherwise, it will open default mail client.
+       * `options.contactPhoneClickable`: if `false`, phone numbers in contact list will not be clickable. Otherwise, it will open default phone client.
+       * `options.showOrgNameOnContactsPage`: if `true`, the organisation name is displayed on the Contacts page.
+       * `options.canStartChat`: if `false`, the button to start chats will be hidden.
+       * `options.startChatTitle`: custom text to use as title in the "Start Chat" dialog.
+       * `options.startChatSubmitButtonText`: custom text to use in submit button in the "Start Chat" dialog.
+       * `options.startChatTitleLabel`: custom text to use as label for chat title input in the "Start Chat" dialog.
+       * `options.startChatMessageLabel`: custom text to use as label for message input in the "Start Chat" dialog.
+       * `options.searchBackButtonLabel`: custom text to use as label for "back" button on search results.
+       * `options.searchNoResultsMessage`: custom text to use in message when no search results found.
        * `options.theme`: CSS overrides to customise the look and feel of the app
          * `options.theme.bubbleBgColour`: Background colour of chat bubble for own message
          * `options.theme.bubbleTextColour`: Text colour of chat bubble for own message
@@ -163,6 +174,18 @@ The listener receives an object with the following structure:
 }
 ```
 
+### path-change
+
+Emitted when navigation between screens happen.
+
+The listener receives an object with the following structure:
+
+```javascript
+{
+  path: string // The current path
+}
+```
+
 ### click-on-contact
 
 Emitted when `contactsTappable` feature is enabled and a user taps on a contact.
@@ -211,12 +234,6 @@ The listener receives an object with the following structure:
   meetingUuid: string // UUID of the meeting
 }
 ```
-
-### chat-list-back
-
-Emitted when `emitChatListBack` feature is enabled and a user clicks on back button on the chat list.
-
-This event has no payload.
 
 ## Functions
 

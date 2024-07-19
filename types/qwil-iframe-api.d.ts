@@ -25,10 +25,24 @@ export interface QwilApiProps {
     emitDownloads?: boolean,
     emitMeetingJoin?: boolean,
 
-    chatListTitle?: string,
-    chatListLogo?: string,
-    emitChatListBack?: boolean,
-    disableChatBack?: boolean,
+    hideChatBack?: boolean,
+    hideTopNav?: boolean,
+    topNavLabelContacts?: string,
+    topNavLabelChats?: string,
+    topNavHeading?: string,
+
+    contactEmailClickable?: string,
+    contactPhoneClickable?: string,
+    showOrgNameOnContactsPage?: boolean,
+
+    canStartChat?: boolean,
+    startChatTitle?: string,
+    startChatSubmitButtonText?: string,
+    startChatTitleLabel?: string,
+    startChatMessageLabel?: string,
+
+    searchBackButtonLabel?: string,
+    searchNoResultsMessage?: string,
   };
   width?: string;
   height?: string;
@@ -39,10 +53,10 @@ export interface QwilApiProps {
 }
 
 export type QwilApiEvents =
+  | 'path-change'
   | 'auth-expired'
   | 'app-error'
   | 'click-on-contact'
-  | 'chat-list-back'
   | 'download-request'
   | 'meeting-join';
 
