@@ -24,6 +24,7 @@ export interface QwilApiProps {
     pdfPreview?: boolean,
     emitDownloads?: boolean,
     emitMeetingJoin?: boolean,
+    emitBookMeeting?: boolean,
 
     hideChatBack?: boolean,
     hideTopNav?: boolean,
@@ -36,6 +37,7 @@ export interface QwilApiProps {
     showOrgNameOnContactsPage?: boolean,
 
     canStartChat?: boolean,
+    canBookMeeting?: boolean,
     startChatTitle?: string,
     startChatSubmitButtonText?: string,
     startChatTitleLabel?: string,
@@ -58,6 +60,7 @@ export type QwilApiEvents =
   | 'app-error'
   | 'click-on-contact'
   | 'download-request'
+  | 'book-meeting'
   | 'meeting-join';
 
 export default class QwilApi {
